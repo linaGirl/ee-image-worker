@@ -24,7 +24,8 @@ Initializing the Worker Pool
 	 * new ImageWorker() returns an image worker poll instance
 	 *
 	 * @param <Number> worker, optional, defaults to 10, the number of parallel image workers to run
-	 * @param <Number> queue, optional, defaults to 1000, the number of jobs that are waiting before starting to fail
+	 * @param <Number> queue, optional, defaults to 1000, the number of jobs that are waiting 
+	 * 				   before starting to fail
 	 * @param <String> filter, options, defaults to «lanczos», the filter to use for resizing
 	 */
 	var workers = new ImageWorker({
@@ -85,8 +86,8 @@ Resizing
 	 * 							the image
 	 * 				   distort: the image is ditortet into the box
 	 * 				   face: 	first faces will be detect if no faces were passed to the «loadImage»
-	 * 							method, then the image will be cropped at the optimal position so that
-	 * 							the most relevant parts of the images will be on the new image 
+	 * 							method, then the image will be cropped at the optimal position so 
+	 * 							that the most relevant parts of the images will be on the new image 
 	 */
 	image.resize({
 		  height: 	1000
@@ -120,8 +121,8 @@ Face Detection
 Encode Image
 
 	/**
-	 * the toBuffer() method returns the reference to the image instance( support for method chaining )
-	 * it executes all cached commands and calls the callback when finished.
+	 * the toBuffer() method returns the reference to the image instance( support for method 
+	 * chaining ). it executes all cached commands and calls the callback when finished.
 	 * Arguments passed to this method can be in any order.
 	 *
 	 * @param <String> format, optional, defaults to «jpp», can be one of «png» and «jpg» 
