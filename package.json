@@ -21,6 +21,7 @@
         , "ee-log"                  : "*"
         , "picha"                   : "0.3.0"
         , "opencv"                  : "0.3.1"
+        , "ee-arguments"            : "*"
         , "ee-resource-pool"        : ">=0.1.4"
     }
     , "devDependencies": {}

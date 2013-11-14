@@ -14,6 +14,8 @@ smart, smooth & fast image resizing and cropping with face detection
 
 ## usage
 
+Initializing the Worker Pool
+
 
 	var ImageWorker = require('ee-image-worker');
 
@@ -32,6 +34,9 @@ smart, smooth & fast image resizing and cropping with face detection
 	});
 
 
+
+Loading an Image
+
 	/**
 	 * the loadImage() method returns an new Image instance
 	 * Arguments passed to this method can be in any order.
@@ -42,6 +47,8 @@ smart, smooth & fast image resizing and cropping with face detection
 	 */
 	var image = workers.loadImage(image, faces, filter);
 
+
+Cropping
 
 	/**
 	 * the crop() method returns the reference to the image instance( support for method chaining )
@@ -60,6 +67,8 @@ smart, smooth & fast image resizing and cropping with face detection
 		, width: 400
 	});
 
+
+Resizing
 
 	/**
 	 * the resize() method returns the reference to the image instance( support for method chaining )
@@ -86,6 +95,15 @@ smart, smooth & fast image resizing and cropping with face detection
 	});
 
 
+Image Stats
+
+	/**
+	 * the stat() method returns the image dimensions and additional availabel image meta data
+	 */
+	image.stat();
+
+
+Face Detection
 
 	/**
 	 * the faces() method returns the reference to the image instance( support for method chaining )
@@ -98,6 +116,8 @@ smart, smooth & fast image resizing and cropping with face detection
 	 */
 	image.faces(callback);
 
+
+Encode Image
 
 	/**
 	 * the toBuffer() method returns the reference to the image instance( support for method chaining )

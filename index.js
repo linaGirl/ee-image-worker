@@ -1,4 +1,4 @@
 
 
 
-	module.exports = require( "./lib/Image" );
+	module.exports = require('./lib/ImageWorker');
