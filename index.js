@@ -4,9 +4,9 @@ var WorkerImage = require('./lib/WorkerImage'),
 module.exports = require('./lib/ImageWorker');
 
 
-fs.readFile('./images/theband.jpg', function(err, buffer){
-    console.log(err);
-    var img = new WorkerImage(buffer);
-    console.log(img.stat());
-
-});
+//fs.readFile('./images/theband.jpg', function(err, buffer){
+//    console.log(err);
+//    var img = new WorkerImage(buffer);
+//    console.log(img.stat());
+//
+//});
