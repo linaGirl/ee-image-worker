@@ -1,6 +1,7 @@
 var   Class 		= require('ee-class')
     , log 			= require('ee-log')
-    , assert 		= require('assert');
+    , assert 		= require('assert')
+    , CallStack     = require('./lib/CallStack');
 
 var testCases       = {};
 
@@ -11,13 +12,16 @@ var WorkerImage = require('./lib/WorkerImage');
 testCases.crop = {
     _setup: function(){
         this.img = new WorkerImage(null, {});
+        // have to modify that manually for now
+        this.img.width = 800;
+        this.img.height = 600;
     }
 
     , cropSingle: function(){
         assert.equal(this.img.top, 0);
         assert.equal(this.img.left, 0);
-        assert.equal(this.img.width, 0);
-        assert.equal(this.img.height, 0);
+        assert.equal(this.img.width, 800);
+        assert.equal(this.img.height, 600);
 
         this.img.crop({top: 100, left: 200, width: 300, height: 400});
 
@@ -39,6 +43,20 @@ testCases.crop = {
         assert.equal(this.img.height, 200);
 
         assert.equal(this.img.actions.length, 2);
+
+        console.log(this.img.actions);
+    }
+
+    , cropChainedInvalid: function(){
+        assert.throws(function(){
+            this.img.crop({top: 400, left: 400, width: 500})
+        }.bind(this), Error);
+    }
+};
+
+testCases.callstack = {
+    _setup: function(){
+        this.cstack = new CallStack();
     }
 };
 
@@ -47,7 +65,7 @@ for(var name in testCases){
     for(var test in testCases[name]){
         if(test[0]!=='_'){
             try{
-                testCases[name]._setup();
+                testCases[name]._setup && testCases[name]._setup();
                 testCases[name][test].call(testCases[name]);
                 log.info('['+test+'] executed successfully.');
             } catch (e) {
