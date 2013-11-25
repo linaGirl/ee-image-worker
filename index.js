@@ -1,34 +1,67 @@
 var WorkerImage = require('./lib/WorkerImage'),
     fs          = require('fs'),
-    picha       = require('picha');
+    picha       = require('picha'),
+    log         = require('ee-log');
 
 module.exports = require('./lib/ImageWorker');
 
+fs.readFile('./images/theband.jpg', function(err, buffer){
+//    picha.decode(buffer, function(err, result){
+//        picha.resize(result, {width: 456, height: 300, filter: 'lanczos'}, function(err, crop){
+//            log(crop);
+//            var sub = crop.subView(77, 0, 300, 300);
+//            var decoded = picha.encodeJpegSync(sub);
+//            fs.writeFile('./images/theband_crop.jpg', decoded, function(error){
+//                log(error);
+//            });
+//        });
+//    });
+    var wi = new WorkerImage(buffer);
+    wi.pad({top: 100 }).crop({top: 400, left: 300}).resize({width: 100, height: 100}).toBuffer(function(err, data){
+        log(err);
+        fs.writeFile('./images/theband_fit.jpg', data, function(error){
+            log(error);
+        });
+    });
+});
 //fs.readFile('./images/theband.jpg', function(err, buffer){
 //    picha.decode(buffer, function(err, result){
 //        var additional = 400,
-//            iterations = result.data.length / result.stride,
 //            rows = [],
-//            stride = ((1615 * 3 + 3) & ~3),
+//            psize = 4,
+//            stride = ((1615 * psize + 3) & ~3),
 //            padded;
+//        var converted = picha.colorConvertSync(result, {pixel: 'rgba'});
+//        var iterations = converted.data.length / converted.stride;
 //
-//        console.log(stride, result.stride, ((stride-result.stride)/2));
+//        var emptyLine = new Buffer(stride).fill(0x0);
+//        for(var i=0; i<100; i++){
+//            rows.push(emptyLine);
+//        }
+//
+//        var left = new Buffer(200*psize).fill(0x0);
+//        var right = new Buffer(stride - converted.width * psize - 200 * psize).fill(0x0);
 //        for(var i=0; i < iterations; i++){
-//            var left = new Buffer(Math.ceil(stride - result.stride)/2).fill(0x0);
-//            var right = new Buffer(Math.ceil(stride - result.stride)/2).fill(0x0);
-//            rows.push(Buffer.concat([left, result.row(i), right]));
+//            // row does not include the padding!
+//            rows.push(Buffer.concat([left, converted.row(i), right]));
+//        }
+//
+//        for(var i=0; i<100; i++){
+//            rows.push(emptyLine);
 //        }
 //        padded = Buffer.concat(rows);
-//        console.log(padded.length);
-//        var pi = new picha.Image({width:1615, height: 800, stride:4848, pixel: 'rgb', data: padded});
-//        picha.encodeJpeg(pi, function(error, data){
+//        var pi = new picha.Image({width:1615, height: 1000, data: padded, pixel: 'rgba'});
+//        picha.encodePng(pi, function(error, data){
 //            console.log(error);
-//            fs.writeFile('./images/padded.jpg', data, function(err){
+//            fs.writeFile('./images/padded.png', data, function(err){
 //                if(!err){
 //                    console.log('Yeah');
 //                }
 //            });
 //        });
+//        console.log(padded.length);
+//        var pi = new picha.Image({width:1615, height: 800, stride:4848, pixel: 'rgb', data: padded});
+//
 //    });
 //});
 /**fs.readFile('./images/theband.jpg', function(err, buffer){
