@@ -8,7 +8,7 @@ module.exports = require('./lib/ImageWorker');
 fs.readFile('./images/padded.png', function(err, buffer){
     console.time('convert');
     var wi = new WorkerImage(buffer);
-    wi.pad({left:300, color:[0xFF, 0]}).toBuffer('png', function(err, data){
+    wi.crop({top:100}).pad({left:300, color:[0xCC, 1]}).toBuffer('png', function(err, data){
         log(err);
         console.timeEnd('convert');
         fs.writeFile('./images/padded_padded.png', data, function(error){
