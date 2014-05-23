@@ -10,24 +10,25 @@
         , "type"                    : "git"
     }
     , "engines": {
-        "node"                      : ">=v0.10.17"
+        "node"                      : "0.10.*"
     }
     , "bugs": {
         "url"                       : "https://github.com/eventEmitter/ee-image-worker/issues"
     }
     , "dependencies": {
-          "ee-class"                : "*"
-        , "ee-types"                : "*"
-        , "ee-log"                  : "*"
-        , "picha"                   : "0.3.0"
-        , "opencv"                  : "0.3.1"
-        , "ee-arguments"            : "*"
-        , "ee-resource-pool"        : ">=0.1.4"
+          "ee-class"                : "1.0.*"
+        , "ee-types"                : "0.1.*"
+        , "ee-log"                  : "0.2.*"
+        , "ee-arguments"            : "1.0.*"
+        , "picha"                   : "0.4.*"
+        , "opencv"                  : "0.5.*"
     }
-    , "devDependencies": {}
+    , "devDependencies": {
+          "mocha"                   : "1.18.*"
+    }
     , "optionalDependencies": {}
     , "keywords"                    : [ "image", "resize", "crop", "face-detection", "cubic", "lanczos", "catmulrom", "mitchel", "box", "triangle" ]
     , "scripts": {
-        "test"                      : "node test.js"
+        "test"                      : "./node_modules/.bin/mocha --reporter spec"
     }
 }
