@@ -1,4 +1,3 @@
 var WorkerImage = require('./lib/WorkerImage');
 
-module.exports.ImageWorker = require('./lib/ImageWorker');
-module.exports.WorkerImage = WorkerImage;
+module.exports = WorkerImage;
