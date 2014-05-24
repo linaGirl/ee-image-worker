@@ -2,14 +2,16 @@
 
 smart, smooth & fast image resizing and cropping with face detection
 
+**the library is under development, it should be stable in mod june 2014**
+
 ## installation
 
-	npm install ee-image
+	npm install ee-image-worker
 
 
 ## build status
 
-[![Build Status](https://travis-ci.org/eventEmitter/ee-image.png?branch=master)](https://travis-ci.org/eventEmitter/ee-image)
+[![Build Status](https://travis-ci.org/eventEmitter/ee-image-worker.png?branch=master)](https://travis-ci.org/eventEmitter/ee-image-worker)
 
 
 ## usage

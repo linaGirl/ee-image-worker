@@ -1,7 +1,7 @@
 {
       "name"                        : "ee-image-worker"
     , "description"                 : "smart, smooth & fast image resizing and cropping with face detection"
-    , "version"                     : "0.1.0"
+    , "version"                     : "0.1.1"
     , "homepage"                    : "https://github.com/eventEmitter/ee-image-worker"
     , "author"                      : "Michael Rüfenacht <ruefe@rcky.ch> (http://rcky.ch/)" 
     , "licence"                     : "mit"
@@ -21,12 +21,13 @@
         , "ee-log"                  : "0.2.*"
         , "ee-arguments"            : "1.0.*"
         , "picha"                   : "0.4.*"
-        , "opencv"                  : "0.5.*"
     }
     , "devDependencies": {
           "mocha"                   : "1.18.*"
     }
-    , "optionalDependencies": {}
+    , "optionalDependencies": {
+          "opencv"                  : "0.5.*"
+    }
     , "keywords"                    : [ "image", "resize", "crop", "face-detection", "cubic", "lanczos", "catmulrom", "mitchel", "box", "triangle" ]
     , "scripts": {
         "test"                      : "./node_modules/.bin/mocha --reporter spec"
