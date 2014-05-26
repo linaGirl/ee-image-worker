@@ -12,13 +12,13 @@ var fs          = require('fs'),
  im.save('./images/out.jpg');
  });
  })*/
-fs.readFile('./images/padded.png', function(err, buffer){
+fs.readFile('./images/paddded.jpg', function(err, buffer){
     var wi = new WorkerImage(buffer);
     console.time('convert');
-    wi.resize({height: 300, width: 2400, background: [0xFF, 0x00, 0x00, 0x10]}).toBuffer('png', function(err, data){
+    wi.resize({height: 50, width: 50}).toBuffer('png', function(err, data){
         log(err);
         console.timeEnd('convert');
-        fs.writeFile('./images/padded_padded.png', data, function(error){
+        fs.writeFile('./images/croppy.png', data, function(error){
             log(error);
         });
     });
