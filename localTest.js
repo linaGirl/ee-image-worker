@@ -1,7 +1,8 @@
 var fs          = require('fs'),
     picha       = require('picha'),
     log         = require('ee-log'),
-    cv          = require('opencv');
+    cv          = require('opencv'),
+    WorkerImage = require('./lib/WorkerImage');
 
 /*cv.readImage("./images/theband.jpg", function(err, im){
  im.detectObject(cv.FACE_CASCADE, {}, function(err, faces){
@@ -12,13 +13,12 @@ var fs          = require('fs'),
  im.save('./images/out.jpg');
  });
  })*/
-fs.readFile('./images/paddded.jpg', function(err, buffer){
+fs.readFile('./images/pancelo.png', function(err, buffer){
     var wi = new WorkerImage(buffer);
     console.time('convert');
-    wi.resize({height: 50, width: 50}).toBuffer('png', function(err, data){
-        log(err);
+    wi.resize({height: '207', width: '40', mode: 'crop'}).toBuffer(function(err, data){
         console.timeEnd('convert');
-        fs.writeFile('./images/croppy.png', data, function(error){
+        fs.writeFile('./images/vergissedernamenid.png', data, function(error){
             log(error);
         });
     });
