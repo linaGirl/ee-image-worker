@@ -28,6 +28,6 @@
     , "optionalDependencies": {}
     , "keywords"                    : [ "image", "resize", "crop", "face-detection", "cubic", "lanczos", "catmulrom", "mitchel", "box", "triangle" ]
     , "scripts": {
-        "test"                      : "./node_modules/.bin/mocha --reporter spec"
+        "test"                      : "./node_modules/.bin/mocha --reporter spec --check-leaks --recursive"
     }
 }

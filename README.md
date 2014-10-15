@@ -86,7 +86,7 @@ Resizing
 	 * 							pixels on top & the bottom or on both sides
 	 * 				   crop: 	pixels are removed either on top & the bottom or on both sides of 
 	 * 							the image
-	 * 				   distort: the image is ditortet into the box
+	 * 				   distort: the image is distorted into the box
 	 * 				   face: 	first faces will be detect if no faces were passed to the «loadImage»
 	 * 							method, then the image will be cropped at the optimal position so 
 	 * 							that the most relevant parts of the images will be on the new image 
@@ -133,3 +133,32 @@ Encode Image
 	 * 				     faces = Array, faces is only present if face detection was used.
 	 */
 	image.toBuffer(format, quality, callback);
+
+#Appendix
+The library will be rewritten to support new features, the interface will look similar:
+
+    .pad(color, left, top, right, bottom)
+    .crop(left, top, width, height)
+    .resize(width, height, strategy, focus) // planned strategies are fit|crop|strict|carve
+    .stat()
+    .encode(format, quality, options)
+    .toBuffer(callback)
+
+Focus by default is at the center of the image and will be adjusted according to the chosen strategy.
+
+##Supported image formats
+Support depends on the installed libraries
+
+  - jpeg
+  - png
+  - tiff
+  - webp
+  
+No `.gif` support!
+
+##Error handling
+To have a consistent error handling we'll wrap `picha's` errors.
+
+###Unsupported image file
+Can be because of an unexpected Buffer format, or a missing library (such as libwebp). We'll probably have to check this
+upfront. Introduce error codes to distinguish properly.

@@ -1,6 +1,6 @@
 var   assert 		= require('assert')
 
-var fluent          = require('../lib/fluent');
+var fluent          = require('../../lib/fluent/index');
 
 describe('FluentStack', function(){
 

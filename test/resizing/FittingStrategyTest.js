@@ -1,6 +1,6 @@
 var assert = require('assert');
 
-var resizing = require('../lib/resizing');
+var resizing = require('../../lib/resizing/index');
 
 function resizeTo(strat, origW, origH, newW, newH, expectedW, expectedH, expectedX, expectedY){
     assert.deepEqual(

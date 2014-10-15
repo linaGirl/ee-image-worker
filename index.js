@@ -1,2 +1,1 @@
-var WorkerImage = require('./lib/WorkerImage');
-module.exports = WorkerImage;
+module.exports = require('./lib/Image');

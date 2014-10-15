@@ -1,6 +1,6 @@
 var assert = require('assert');
 
-var resizing = require('../lib/resizing');
+var resizing = require('../../lib/resizing/index');
 
 describe('DefaultResizing', function(){
     var strategy = new resizing.DefaultStrategy(),
