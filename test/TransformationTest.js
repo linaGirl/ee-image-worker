@@ -26,7 +26,7 @@ var assertMime = function(err, result, expected, done){
 var testEncoding = function(buffer, to, expected, done){
     var transformation  = new Transformation();
     transformation.encode(to);
-    transformation.applyTo(buffer, null, function(err, result){
+    transformation.applyTo(buffer, function(err, result){
         assertMime(err, result, expected, done);
     });
 };
@@ -111,7 +111,7 @@ describe('Transformation', function(){
 
         it('should add a default encoding (and preserve the image type) if there is no encoding set (see crop)', function(done){
             var transformation = new Transformation();
-            transformation.crop(0, 0).applyTo(images.png, null, function(err, result){
+            transformation.crop(0, 0).applyTo(images.png, function(err, result){
                 assert(!err);
                 var stats = picha.stat(result);
                 assert.equal(stats.mimetype, 'image/png');
@@ -123,7 +123,7 @@ describe('Transformation', function(){
     describe('crop', function(){
         it('should normalize the parameters', function(done){
             var transformation = new Transformation();
-            transformation.crop(-100, 100).applyTo(images.jpg, null, function(err, result){
+            transformation.crop(-100, 100).applyTo(images.jpg, function(err, result){
                 assert(!err);
                 var stats = picha.stat(result);
                 assert.equal(stats.width, '1720');
@@ -134,7 +134,7 @@ describe('Transformation', function(){
 
         it('should take all parameters into account if set', function(done){
             var transformation = new Transformation();
-            transformation.crop(100, 200, 300, 400).applyTo(images.jpg, null, function(err, result){
+            transformation.crop(100, 200, 300, 400).applyTo(images.jpg, function(err, result){
                 assert(!err);
                 var stats = picha.stat(result);
                 assert.equal(stats.width, '1520');

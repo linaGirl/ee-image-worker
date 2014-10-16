@@ -3,7 +3,7 @@ var assert = require('assert');
 var resizing = require('../../lib/resizing/index');
 
 describe('DefaultResizing', function(){
-    var strategy = new resizing.DefaultStrategy(),
+    var strategy = new resizing.CroppingStrategy(),
         strat = strategy;
 
     it('should preserve same sizes', function(){
@@ -31,7 +31,6 @@ describe('DefaultResizing', function(){
                 strat.computeResizingData(1600, 600, 1200, 300),
                 strat.result(1200, 450, 0, 75));
         });
-
 
         it('should expand correctly', function(){
             assert.deepEqual(

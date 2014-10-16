@@ -162,3 +162,13 @@ To have a consistent error handling we'll wrap `picha's` errors.
 ###Unsupported image file
 Can be because of an unexpected Buffer format, or a missing library (such as libwebp). We'll probably have to check this
 upfront. Introduce error codes to distinguish properly.
+
+##Strategies
+We differentiate two image resizing types:
+
+  - `resize(width, height, filter)` applies a change of dimension without taking the image dimensions into account any precomputations
+  - `scale(width, height, strategy, options)` applies a change of dimension following a specific strategy. Strategies can be one of the following
+    - `resize`  is an ordinary resizing
+    - `fit`     scales the image to fit into a bounding box
+    - `fill`    scales and crops an image to fill a bounding box
+    - `carve`   applies seam carving
