@@ -77,4 +77,9 @@ playground.js
 
 # folder to add trout files
 images
-data
+
+examples/*.jpg
+examples/*.jpeg
+examples/*.png
+examples/*.tiff
+examples/*.webp
