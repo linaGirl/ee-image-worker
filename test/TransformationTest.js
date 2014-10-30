@@ -78,33 +78,35 @@ describe('Transformation', function(){
         });
     });
 
-    describe('tiff', function(){
+    describe('toTiff', function(){
         it('is a shortcode for encoding as tiff and applying', function(done){
-            new Transformation(engine).tiff(images.png, null, function(err, result){
+            new Transformation(engine).toTiff(images.png, null, function(err, result){
                 assertMime(err, result, 'image/tiff', done);
             });
         });
     });
 
-    describe('png', function(){
+    describe('toPng', function(){
         it('is a shortcode for encoding as png and applying', function(done){
-            new Transformation(engine).png(images.tiff, null, function(err, result){
+            new Transformation(engine).toPng(images.tiff, null, function(err, result){
                 assertMime(err, result, 'image/png', done);
             });
         });
     });
 
-    describe('jpeg', function(){
+    describe('toJpeg', function(){
         it('is a shortcode for encoding as jpg and applying', function(done){
-            new Transformation(engine).jpeg(images.jpg, null, function(err, result){
+            new Transformation(engine).toJpeg(images.jpg, null, function(err, result){
                 assertMime(err, result, 'image/jpeg', done);
             });
         });
     });
 
-    describe('webp', function(){
+    describe('toWebp', function(){
         it('is a shortcode for encoding as webp and applying', function(done){
-            testEncoding(images.png, 'webp', 'image/webp', done);
+            new Transformation(engine).toWebp(images.jpg, null, function(err, result){
+                assertMime(err, result, 'image/webp', done);
+            });
         });
     });
 

@@ -44,9 +44,9 @@ describe('The Pipeline', function(){
                 done(err);
             });
         });
-        it('should not do anything if not rewinded properly', function(done){
+        it('should restart without rewinding', function(done){
             pipeline.invoke([], function(err, result){
-                assert.equal(0, result.length);
+                assert.equal(3, result.length);
                 done();
             });
         });
@@ -55,6 +55,24 @@ describe('The Pipeline', function(){
                 assert.deepEqual(['3', '0', '1', '2'], result);
                 done(err);
             });
+        });
+        it('should not be modifiable during runtime', function(done){
+            var pipe = new Pipeline()
+                , slowIncrease = function(data, next){
+                    data++;
+                    setTimeout(function(){
+                        next(null, data);
+                    }, 20);
+                };
+            pipe.append(slowIncrease);
+            pipe.append(slowIncrease);
+            pipe.invoke(0, function(err, result){
+                assert(!err);
+                assert.equal(2, result);
+                assert.equal(3, pipe.length);
+                done();
+            });
+            pipe.append(slowIncrease);
         });
     });
 });

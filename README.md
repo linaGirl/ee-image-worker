@@ -172,3 +172,7 @@ We differentiate two image resizing types:
     - `fit`     scales the image to fit into a bounding box
     - `fill`    scales and crops an image to fill a bounding box
     - `carve`   applies seam carving
+    
+##Face detection
+To detect faces is not as easy as we thought. So i propose a combination of multiple detections (faces and eyes):
+First group all faces that somehow intersect (drop all faces that have no intersection, this might kills some good results).
