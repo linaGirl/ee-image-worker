@@ -1,7 +1,7 @@
 {
       "name"                        : "ee-image-worker"
-    , "description"                 : "smart, smooth & fast image resizing and cropping with face detection"
-    , "version"                     : "0.1.4"
+    , "description"                 : "smart, smooth & fast image resizing and cropping"
+    , "version"                     : "0.2.0"
     , "homepage"                    : "https://github.com/eventEmitter/ee-image-worker"
     , "author"                      : "Michael Rüfenacht <ruefe@rcky.ch> (http://rcky.ch/)" 
     , "licence"                     : "mit"
