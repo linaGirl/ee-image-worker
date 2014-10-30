@@ -12,4 +12,5 @@ module.exports.createTransformation = function(engine){
     return new Transformation(engine || defaultEngine);
 };
 
-module.exports.errors = errors;
+module.exports.errors  = errors;
+module.exports.engines = engines;

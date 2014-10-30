@@ -13,11 +13,14 @@ fs.readFile('../test/resources/band.jpg', function(err, buffer){
 
     var image = eeImage.createImage(buffer);
     image.crop(800, 600).scale({width: 400}).pad([0x00], 50).toPng(function(err, result){
-        image.crop(200, 200).toBuffer('png', function(err, result){
+        // set the focus
+        image.focusOn(new eeImage.engines.abstract.Focus(50, 50)).scale({width: 200, height: 200}, 'crop').toBuffer('png', function(err, result){
             if(err) return log(err);
             fs.writeFileSync('./band-image.png', result);
         });
+
     });
+
 
     /**
      * Work with a transformation, a transformation is reusable and is applied to a buffer.
