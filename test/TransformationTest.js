@@ -138,15 +138,19 @@ describe('Transformation', function(){
             });
         });
 
-        it('should take all parameters into account if set', function(done){
+        it('should take all parameters into account if set also if its a string', function(done){
             var transformation = new Transformation(engine);
-            transformation.crop(100, 200, {right: 200, bottom: 200}).applyTo(images.jpg, function(err, result){
+            transformation.crop(100, '200', {right: '200', bottom: 200}).applyTo(images.jpg, function(err, result){
                 assert(!err);
                 var stats = picha.stat(result);
-                assert.equal(stats.width, '100');
-                assert.equal(stats.height, '200');
+                assert.equal(stats.width, 100);
+                assert.equal(stats.height, 200);
                 done();
             });
         });
+    });
+
+    describe('scale', function(){
+        it.skip('should have some tests!');
     });
 });
