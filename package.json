@@ -1,24 +1,24 @@
 {
       "name"                        : "ee-image-worker"
     , "description"                 : "smart, smooth & fast image resizing and cropping with face detection"
-    , "version"                     : "0.1.4"
+    , "version"                     : "0.2.0"
     , "homepage"                    : "https://github.com/eventEmitter/ee-image-worker"
-    , "author"                      : "Michael Rüfenacht <ruefe@rcky.ch> (http://rcky.ch/)" 
+    , "author"                      : "Michael Rüfenacht <ruefe@rcky.ch> (http://rcky.ch/)"
     , "licence"                     : "mit"
     , "repository": {
           "url"                     : "https://github.com/eventEmitter/ee-image-worker.git"
         , "type"                    : "git"
     }
     , "engines": {
-        "node"                      : "0.10.*"
+        "node"                      : ">=0.12"
     }
     , "bugs": {
         "url"                       : "https://github.com/eventEmitter/ee-image-worker/issues"
     }
     , "dependencies": {
-          "ee-class"                : "1.0.*"
-        , "ee-types"                : "0.1.*"
-        , "ee-log"                  : "0.2.*"
+          "ee-class"                : "1.x"
+        , "ee-types"                : "1.x"
+        , "ee-log"                  : "0.3.*"
         , "ee-arguments"            : "1.0.*"
         , "picha"                   : "0.4.*"
     }

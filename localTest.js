@@ -1,8 +1,6 @@
 var fs          = require('fs'),
     picha       = require('picha'),
-    log         = require('ee-log'),
-    cv          = require('opencv'),
-    WorkerImage = require('./lib/WorkerImage');
+    log         = require('ee-log');
 
 /*cv.readImage("./images/theband.jpg", function(err, im){
  im.detectObject(cv.FACE_CASCADE, {}, function(err, faces){
@@ -13,13 +11,37 @@ var fs          = require('fs'),
  im.save('./images/out.jpg');
  });
  })*/
-fs.readFile('./images/pancelo.png', function(err, buffer){
-    var wi = new WorkerImage(buffer);
-    console.time('convert');
-    wi.resize({height: '207', width: '40', mode: 'crop'}).toBuffer(function(err, data){
-        console.timeEnd('convert');
-        fs.writeFile('./images/vergissedernamenid.png', data, function(error){
-            log(error);
-        });
+var thread = function() {
+    fs.readFile('/home/em/pics/2048.jpg', function(err, data) {
+        if (err) throw err;
+        else {
+            picha.decode(data, function(err, image) {
+                if (err) throw err;
+                else {
+                    picha.resize(image, {filter: 'lanczos', width: 1500, height: 1000}, function(err, resizedImage) {
+                        var croppedImage;
+
+                        if (err) throw err;
+                        else {
+                            croppedImage = resizedImage.subView(50, 100, 500, 600);
+                            picha.encodeJpeg(croppedImage, {quality: 70}, function(err, img) {
+                                if (err) throw err;
+                                else {
+                                    fs.writeFile('./out.jpg', data, function(err) {
+                                        if (err) throw err;
+                                        thread();
+                                    });
+                                }
+                            });
+                        }
+                    }.bind(this));                    
+                }
+            }.bind(this));
+        }
     });
-});
+}
+
+
+
+var i = 20;
+while(i--) thread();
