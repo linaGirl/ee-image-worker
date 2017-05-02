@@ -1,5 +1,7 @@
 # ee-image
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/eventEmitter/ee-image-worker.svg)](https://greenkeeper.io/)
+
 smart, smooth & fast image resizing and cropping
 
 **the library is currently rewritten and under development**

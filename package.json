@@ -17,13 +17,13 @@
     }
     , "dependencies": {
           "ee-class"                : "1.x"
-        , "ee-types"                : "1.x"
-        , "ee-log"                  : "0.3.*"
+        , "ee-types"                : "^2.1.2"
+        , "ee-log"                  : "~2.0.2"
         , "ee-arguments"            : "1.0.*"
         , "picha"                   : "0.4.*"
     }
     , "devDependencies": {
-          "mocha"                   : "1.18.*"
+          "mocha"                   : "~3.3.0"
     }
     , "optionalDependencies": {}
     , "keywords"                    : [ "image", "resize", "crop", "face-detection", "cubic", "lanczos", "catmulrom", "mitchel", "box", "triangle" ]
