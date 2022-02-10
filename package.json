@@ -1,33 +1,43 @@
 {
-      "name"                        : "ee-image-worker"
-    , "description"                 : "smart, smooth & fast image resizing and cropping"
-    , "version"                     : "0.2.7"
-    , "homepage"                    : "https://github.com/eventEmitter/ee-image-worker"
-    , "author"                      : "Michael Rüfenacht <ruefe@rcky.ch> (http://rcky.ch/)"
-    , "licence"                     : "mit"
-    , "repository": {
-          "url"                     : "https://github.com/eventEmitter/ee-image-worker.git"
-        , "type"                    : "git"
-    }
-    , "engines": {
-        "node"                      : ">=0.12"
-    }
-    , "bugs": {
-        "url"                       : "https://github.com/eventEmitter/ee-image-worker/issues"
-    }
-    , "dependencies": {
-          "ee-class"                : "1.x"
-        , "ee-types"                : "1.x"
-        , "ee-log"                  : "0.3.*"
-        , "ee-arguments"            : "1.0.*"
-        , "picha"                   : "0.4.*"
-    }
-    , "devDependencies": {
-          "mocha"                   : "1.18.*"
-    }
-    , "optionalDependencies": {}
-    , "keywords"                    : [ "image", "resize", "crop", "face-detection", "cubic", "lanczos", "catmulrom", "mitchel", "box", "triangle" ]
-    , "scripts": {
-        "test"                      : "./node_modules/.bin/mocha --reporter spec --check-leaks --recursive"
-    }
+      "name": "ee-image-worker",
+      "description": "smart, smooth & fast image resizing and cropping",
+      "version": "0.2.7",
+      "homepage": "https://github.com/eventEmitter/ee-image-worker",
+      "author": "Michael Rüfenacht <ruefe@rcky.ch> (http://rcky.ch/)",
+      "licence": "mit",
+      "repository": {
+            "url": "https://github.com/eventEmitter/ee-image-worker.git",
+            "type": "git"
+      },
+      "engines": {
+            "node": ">=0.12"
+      },
+      "bugs": {
+            "url": "https://github.com/eventEmitter/ee-image-worker/issues"
+      },
+      "dependencies": {
+            "ee-arguments": "1.0.*",
+            "ee-class": "1.x",
+            "ee-log": "0.3.*",
+            "ee-types": "1.x",
+            "picha": "^0.5.5"
+      },
+      "devDependencies": {
+            "mocha": "^9.2.0"
+      },
+      "keywords": [
+            "image",
+            "resize",
+            "crop",
+            "face-detection",
+            "cubic",
+            "lanczos",
+            "catmulrom",
+            "mitchel",
+            "box",
+            "triangle"
+      ],
+      "scripts": {
+            "test": "./node_modules/.bin/mocha --reporter spec --check-leaks --recursive"
+      }
 }
